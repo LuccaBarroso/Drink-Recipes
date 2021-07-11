@@ -1,4 +1,5 @@
+@use "variables";
 h1 {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  color: red;
+  color: variables.$main-color;
 }
