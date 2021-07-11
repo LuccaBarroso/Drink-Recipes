@@ -15,6 +15,7 @@ module.exports = {
   output: {
     filename: "main.[contenthash].js",
     path: path.resolve(__dirname, "dist"),
+    assetModuleFilename: "images/[hash][ext][query]",
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -25,13 +26,18 @@ module.exports = {
   ],
   module: {
     rules: [
+      { test: /\.(png|jpe?g|gif|svg)$/, type: "asset/resource" },
       {
         test: /\.scss$/,
         use: [
           // extract css into files
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: { publicPath: "" },
+          },
           // Translates CSS into CommonJS
           "css-loader",
+          "postcss-loader",
           // Compiles Sass to CSS
           "sass-loader",
         ],
