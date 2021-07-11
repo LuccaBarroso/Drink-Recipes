@@ -1,2 +1,2 @@
-import "../main.scss";
+import "./styles/index.scss";
 alert("hello world");
