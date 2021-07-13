@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const pages = ["index", "page"];
+const pages = ["index"];
 const regularPlugins = [new CleanWebpackPlugin(), new MiniCssExtractPlugin()];
 
 let mode = "development";

@@ -1,0 +1,39 @@
+@use "variables";
+body {
+  background-color: variables.$background-color;
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-size: variables.$regular-text-size;
+  font-family: "Poppins", sans-serif;
+}
+.larger-section {
+  background-color: variables.$dark-color;
+}
+.first-section {
+  height: 600px;
+}
+
+.left-topnav {
+  display: flex;
+  width: 230px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  border-bottom-right-radius: 25px;
+  background-color: variables.$less-dark-color;
+  font-size: variables.$bigger-text-size;
+  .logo {
+    background-image: url("../images/logo-branca.png");
+    width: 45px;
+    background-size: cover;
+  }
+  h2 {
+    padding-left: 10px;
+    padding-top: 10px;
+    color: white;
+    span {
+      color: variables.$details-color;
+    }
+  }
+}
