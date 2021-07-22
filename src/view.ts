@@ -1,9 +1,26 @@
+import { generateRandom } from "./index";
+
 const recipeName = document.querySelector(".drinkName");
 const drinkImg = document.querySelector(".drinkImg");
 const spiner = document.querySelector(".drinkLoading");
 const drinkContent = document.querySelectorAll(".drinkContent");
 const ingredientsTable = document.querySelector("#ingTable");
-const rightDrinkContent = document.querySelector("#rightDrinkContent");
+const stepsP = document.querySelector(".steps");
+const randomBtn = document.querySelector(".random");
+const recipePlace = document.querySelector("#rec");
+
+export const initBtns = function () {
+  randomBtn?.addEventListener("click", function () {
+    drinkContent.forEach((e) => {
+      // @ts-ignore
+      e.style.display = "none";
+      e.classList.remove("showTriangle");
+    });
+    //@ts-ignore
+    recipePlace.scrollIntoView();
+    generateRandom();
+  });
+};
 
 export const toggleSpinner = function (what: boolean) {
   if (what) {
@@ -14,10 +31,12 @@ export const toggleSpinner = function (what: boolean) {
     spiner.style.display = "none";
   }
 };
+
 export const displayRecipe = function (
   name: string,
   imgLink: string,
-  ing: string
+  ing: string,
+  steps: string
 ) {
   if (recipeName) recipeName.textContent = name;
   //@ts-ignore
@@ -30,6 +49,8 @@ export const displayRecipe = function (
     e.style.display = "flex";
     e.classList.add("showTriangle");
   });
+  //@ts-ignore
+  stepsP?.textContent = steps;
   //@ts-ignore
   ingredientsTable.insertAdjacentHTML("afterbegin", ing);
 };
