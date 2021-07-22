@@ -54,4 +54,5 @@ export const displayRecipe = function (
   //@ts-ignore
   ingredientsTable?.innerHTML = "";
   ingredientsTable?.insertAdjacentHTML("afterbegin", ing);
+
 };
