@@ -1,6 +1,7 @@
 import { showData } from ".";
 import { toggleSpinner } from "./view";
 
+//@ts-ignore
 export const getdrink = async function (url: string) {
   try {
     toggleSpinner(true);
@@ -30,7 +31,7 @@ const loadIngredients = function (everything: object): string {
     //@ts-ignore
     const curMeas = everything["strMeasure" + i];
     ing += `<tr>
-            ${curMeas ? "" : "<td>" + curMeas + "</td>"}
+            <td>${curMeas === null ? "" : curMeas}</td>
               <td>${curIng}</td>
             </tr>`;
   }
