@@ -42,15 +42,17 @@ export const displayRecipe = function (
   //@ts-ignore
   if (drinkImg) drinkImg.src = imgLink;
 
-  toggleSpinner(false);
-
   drinkContent.forEach((e) => {
     // @ts-ignore
     e.style.display = "flex";
     e.classList.add("showTriangle");
   });
+
+  toggleSpinner(false);
   //@ts-ignore
   stepsP?.textContent = steps;
   //@ts-ignore
-  ingredientsTable.insertAdjacentHTML("afterbegin", ing);
+  ingredientsTable?.innerHTML = "";
+  ingredientsTable?.insertAdjacentHTML("afterbegin", ing);
+
 };

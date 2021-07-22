@@ -58,12 +58,12 @@
   background-color: variables.$dark-color;
 }
 table {
-  color: variables.$background-color;
   max-width: 80%;
   tbody {
     overflow: hidden;
   }
   td {
+    color: white;
     font-size: 25px;
     font-weight: default;
     padding: 0.25em 0.5em;
@@ -77,7 +77,7 @@ table {
   }
 }
 .showTriangle {
-  animation: goUp 1s forwards 1s;
+  animation: goUp 1s forwards 0.3s;
 }
 @keyframes goUp {
   0% {
