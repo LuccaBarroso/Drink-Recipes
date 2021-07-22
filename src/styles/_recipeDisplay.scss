@@ -1,0 +1,84 @@
+@use "variables";
+
+.right-side,
+.left-side {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 15px;
+  top: 600px;
+  position: relative;
+  overflow: hidden;
+}
+.triangle {
+  position: absolute;
+  top: 0;
+  width: 550px;
+  height: 550px;
+}
+.drinkImg {
+  height: 450px;
+  width: 450px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  padding-bottom: 5px;
+}
+.section-1 {
+  padding-top: 200px;
+  height: auto;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.drinkName {
+  font-size: 35px;
+}
+@media (max-width: 1000px) {
+  .section-1 {
+    flex-direction: column;
+  }
+  .drinkName {
+    padding-bottom: 20px;
+  }
+  .left-side,
+  .right-side {
+    width: 100%;
+  }
+}
+
+.drinkContent {
+  display: none;
+}
+.section-2 {
+  background-color: variables.$dark-color;
+}
+table {
+  color: variables.$background-color;
+  max-width: 80%;
+  td {
+    font-size: 25px;
+    font-weight: default;
+    padding: 0.25em 0.5em;
+    text-align: left;
+  }
+  tbody tr:nth-child(odd) {
+    transform: rotate(4deg);
+  }
+  tbody tr:nth-child(even) {
+    transform: rotate(-4deg);
+  }
+}
+.showTriangle {
+  animation: goUp 1s forwards 1s;
+}
+@keyframes goUp {
+  0% {
+    top: 600px;
+  }
+  100% {
+    top: 0;
+  }
+}

@@ -3,7 +3,7 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const pages = ["index"];
-const regularPlugins = [new CleanWebpackPlugin(), new MiniCssExtractPlugin()];
+let regularPlugins = [new CleanWebpackPlugin(), new MiniCssExtractPlugin()];
 
 let mode = "development";
 
@@ -21,7 +21,7 @@ module.exports = {
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
-    assetModuleFilename: "images/[hash][ext][query]",
+    assetModuleFilename: "imgs/[hash][ext][query]",
   },
   optimization: {
     splitChunks: {
@@ -61,6 +61,11 @@ module.exports = {
         test: /\.ts$/,
         exclude: /node_modules/,
         use: [{ loader: "babel-loader" }, "ts-loader"],
+      },
+      {
+        test: /\.html$/,
+        exclude: /node_modules/,
+        use: ["html-loader"],
       },
     ],
   },

@@ -1,0 +1,59 @@
+@use "variables";
+
+.navbar {
+  width: 100vw;
+}
+.nav {
+  z-index: 3;
+  height: 40px;
+  display: flex;
+  width: 180px;
+  position: fixed;
+  align-items: center;
+  background-color: variables.$less-dark-color;
+  font-size: variables.$bigger-text-size;
+}
+
+.left-topnav {
+  border-bottom-right-radius: 25px;
+  left: 0;
+
+  .logo {
+    padding: 4px;
+    width: 30px;
+    height: 30px;
+  }
+  h2 {
+    font-size: variables.$bigger-text-size;
+    color: white;
+    span {
+      font-size: variables.$bigger-text-size;
+      color: variables.$details-color;
+    }
+  }
+}
+@media (max-width: 320px) {
+  .nav h2 {
+    display: none;
+  }
+}
+
+.right-topnav {
+  border-bottom-left-radius: 25px;
+  right: 0;
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: white;
+  }
+  .search {
+    padding-right: 10px;
+    padding-left: 20px;
+  }
+  .random {
+    background-color: variables.$dark-color;
+    border-radius: 10px;
+    padding: 3px 30px;
+  }
+}
