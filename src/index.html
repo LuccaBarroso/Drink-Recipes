@@ -17,7 +17,7 @@
     <title>WowDrinks</title>
   </head>
   <body>
-    <section class="larger-section first-section">
+    <div class="topnav">
       <div class="left-topnav nav">
         <img class="logo" src="./imgs/logo-branca.png" alt="" />
         <h2><span>Wow</span>Drinks</h2>
@@ -26,16 +26,39 @@
         <button class="search"><i class="fas fa-search fa-sm"></i></button>
         <button class="random">Random</button>
       </div>
+    </div>
+
+    <section class="larger-section first-section">
       <div class="centro">
         <p>The best place to find <span>drink</span> recipes!</p>
         <button><i class="fas fa-arrow-down fa-2x"></i></button>
       </div>
     </section>
+
     <div class="img-container">
+      <img src="./imgs/fundo.svg" class="backgroundImg" />
       <div class="left-img"></div>
       <div class="right-img"></div>
     </div>
-    <p>
+
+    <section class="section-1">
+      <div class="loading drinkLoading"></div>
+      <div class="left-side drinkContent ">
+        <p class="drinkName">AAAAAAAAAAA</p>
+      </div>
+      <div class="right-side drinkContent showTriangle" id="rightDrinkContent">
+        <img src="./imgs/triangulo.svg" class="triangle"></img>
+        <img src="./imgs/foto-1.png" class="drinkImg" alt="recipeImg" />
+      </div>
+    </section>
+
+    <section class="section-2 larger-section">
+      <table class="ingredients">
+        <tbody id="ingTable">
+        </tbody>
+      </table>
+    </section>
+    <p style="background-color: #30323d">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quasi
       dolorem, placeat facere odit aspernatur, blanditiis soluta voluptates
       officiis est aut quam, enim iste suscipit dolore unde! Ratione laboriosam

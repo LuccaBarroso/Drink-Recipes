@@ -23,7 +23,6 @@ const calcScroll = function (scroll: number): number {
 
 const updateAnimation = function (): void {
   let percent = calcScroll(window.pageYOffset);
-  console.log(percent);
   let topValue = -300 + percent;
   let sideValue = -150 + percent;
   //@ts-ignore

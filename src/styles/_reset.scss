@@ -1,0 +1,16 @@
+@use "variables";
+
+* {
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  font-size: variables.$regular-text-size;
+  font-family: "Poppins", sans-serif;
+}
+button:hover {
+  transform: scale(1.05);
+  transition: transform 0.25s ease-in-out;
+}
+body {
+  background-color: variables.$background-color;
+}
