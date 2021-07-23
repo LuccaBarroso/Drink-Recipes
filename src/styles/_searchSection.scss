@@ -1,0 +1,73 @@
+@use "variables";
+
+.section-4 {
+  background-color: variables.$dark-color;
+  height: auto;
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 100vw;
+    overflow: hidden;
+    input {
+      border-radius: 10px 0 0 10px;
+      padding-right: 0;
+      padding-left: 0;
+    }
+    button {
+      align-items: center;
+      background-color: variables.$less-dark-color;
+      border: none;
+      border-radius: 0 10px 10px 0;
+      width: 50px;
+      padding-right: 0;
+      padding-left: 0;
+      i {
+        color: variables.$details-color;
+      }
+    }
+  }
+  button:hover {
+    scale: 5;
+  }
+}
+.displayResults {
+  width: 720px;
+  height: auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 20px;
+  display: none;
+  .recItem {
+    width: 350px;
+    height: 390px;
+    background-color: variables.$less-dark-color;
+    img {
+      width: 330px;
+      height: 340px;
+      padding-top: 10px;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    h3 {
+      color: white;
+      width: 100%;
+      text-align: center;
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .displayResults {
+    width: 350px;
+    grid-template-columns: auto;
+  }
+}
