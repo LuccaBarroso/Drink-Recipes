@@ -20,3 +20,15 @@ body {
 html {
   scroll-behavior: smooth;
 }
+input[type="text"] {
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  border: none;
+  width: 200px;
+  transition: ease-in-out, width 0.35s ease-in-out;
+}
+input[type="text"]:focus {
+  width: 300px;
+  border-color: transparent;
+  border-width: 0px;
+}
