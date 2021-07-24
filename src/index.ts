@@ -30,5 +30,5 @@ export const submitResearch = async function (term: string) {
   const drinks = await searchForTerm(term);
   //displaying data
   //@ts-ignore
-  showSearchResult(drinks);
+  showSearchResult(drinks[0], drinks[1]);
 };

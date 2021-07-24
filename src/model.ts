@@ -44,7 +44,9 @@ export const searchForTerm = async function (term: string) {
       `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${term}`
     );
     const data = await response.json();
+    console.log(data);
     const drinks = data.drinks;
+    if (drinks === null) return "NOT FOUND";
     let result: string = "";
     await drinks.forEach(async function (drink: object) {
       let drinkStr = `<div class="recItem" data-id="${
@@ -64,7 +66,7 @@ export const searchForTerm = async function (term: string) {
 
       result += drinkStr;
     });
-    return result;
+    return [result, drinks.length];
   } catch (err) {
     console.log(err);
   }
