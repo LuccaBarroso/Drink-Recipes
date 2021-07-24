@@ -1,4 +1,4 @@
-import { generateRandom } from "./index";
+import { generateRandom, submitResearch } from "./index";
 
 const recipeName = document.querySelector(".drinkName");
 const drinkImg = document.querySelector(".drinkImg");
@@ -8,6 +8,10 @@ const ingredientsTable = document.querySelector("#ingTable");
 const stepsP = document.querySelector(".steps");
 const randomBtn = document.querySelector(".random");
 const recipePlace = document.querySelector("#rec");
+const searchSubmission = document.querySelector("#submitSearch");
+const searchName = document.querySelector("#searchName");
+const searchResult = document.querySelector(".displayResults");
+const loadingSearchResult = document.querySelector(".displayResultsLoading");
 
 export const initBtns = function () {
   randomBtn?.addEventListener("click", function () {
@@ -19,6 +23,11 @@ export const initBtns = function () {
     //@ts-ignore
     recipePlace.scrollIntoView();
     generateRandom();
+  });
+  searchSubmission?.addEventListener("click", function (e) {
+    e.preventDefault();
+    //@ts-ignore
+    submitResearch(searchName?.value);
   });
 };
 
@@ -54,5 +63,19 @@ export const displayRecipe = function (
   //@ts-ignore
   ingredientsTable?.innerHTML = "";
   ingredientsTable?.insertAdjacentHTML("afterbegin", ing);
+};
 
+export const showSearchResult = function (drinks: string) {
+  //@ts-ignore
+  loadingSearchResult?.classList.add("dontDisplay");
+  searchResult?.insertAdjacentHTML("afterbegin", drinks);
+  searchResult?.classList.remove("dontDisplay");
+};
+
+export const displayLoadingSearch = function () {
+  //@ts-ignore
+  searchResult?.innerHTML = "";
+  searchResult?.classList.add("dontDisplay");
+  //@ts-ignore
+  loadingSearchResult?.classList.remove("dontDisplay");
 };

@@ -63,27 +63,13 @@
       <p class="steps"></p>
     </section>
     <section class="section-4 larger-section" id="section-4">
-      <form action="">
-        <input type="text" placeholder=" Search for drinks">
-        <button id="submitSearch"><i class="fas fa-search fa-sm"></i></button>
+      <form action="/" >
+        <input id="searchName" type="text" placeholder=" Search for drinks">
+        <button id="submitSearch" onchange="submitResearch()" ><i class="fas fa-search fa-sm"></i></button>
       </form>
+      <div class="loading displayResultsLoading dontDisplay"></div>
       <div class="displayResults">
-        <div class="recItem"><img src="./imgs/foto-1.png" alt="receita tal">
-        <h3>Nome</h3></div>
-        <div class="recItem"><img src="./imgs/foto-1.png" alt="receita tal">
-        <h3>Nome</h3></div>
-        <div class="recItem"><img src="./imgs/foto-1.png" alt="receita tal">
-        <h3>Nome</h3></div>
-        <div class="recItem"><img src="./imgs/foto-1.png" alt="receita tal">
-        <h3>Nome</h3></div>
-        <div class="recItem"><img src="./imgs/foto-1.png" alt="receita tal">
-        <h3>Nome</h3></div>
-        <div class="recItem"><img src="./imgs/foto-1.png" alt="receita tal">
-        <h3>Nome</h3></div>
-        <div class="recItem"><img src="./imgs/foto-1.png" alt="receita tal">
-        <h3>Nome</h3></div>
-        <div class="recItem"><img src="./imgs/foto-1.png" alt="receita tal">
-        <h3>Nome</h3></div>
+        
       </div>
     </section>
   </body>

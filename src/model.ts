@@ -37,3 +37,35 @@ const loadIngredients = function (everything: object): string {
   }
   return ing;
 };
+
+export const searchForTerm = async function (term: string) {
+  try {
+    const response = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${term}`
+    );
+    const data = await response.json();
+    const drinks = data.drinks;
+    let result: string = "";
+    await drinks.forEach(async function (drink: object) {
+      let drinkStr = `<div class="recItem" data-id="${
+        //@ts-ignore
+        drink.idDrink
+      }"><img class="searchF" src="${
+        //@ts-ignore
+        drink.strDrinkThumb
+      }/preview" alt="${
+        //@ts-ignore
+        drink.strDrink + " img"
+      }">
+      <h3>${
+        //@ts-ignore
+        drink.strDrink
+      }</h3></div>`;
+
+      result += drinkStr;
+    });
+    return result;
+  } catch (err) {
+    console.log(err);
+  }
+};

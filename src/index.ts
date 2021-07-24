@@ -1,7 +1,12 @@
 import { loadHandsAnimation } from "./handsAnimation";
-import { getdrink } from "./model";
+import { getdrink, searchForTerm } from "./model";
 import "./styles/index.scss";
-import { displayRecipe, initBtns } from "./view";
+import {
+  displayLoadingSearch,
+  displayRecipe,
+  initBtns,
+  showSearchResult,
+} from "./view";
 
 loadHandsAnimation();
 document
@@ -9,7 +14,6 @@ document
   ?.addEventListener("click", loadHandsAnimation);
 
 export const showData = function (data: any, img: any, ingredients: string) {
-  console.log(data);
   displayRecipe(data.strDrink, img, ingredients, data.strInstructions);
 };
 
@@ -18,3 +22,13 @@ export const generateRandom = function () {
 };
 generateRandom();
 initBtns();
+
+export const submitResearch = async function (term: string) {
+  //Show Loading
+  displayLoadingSearch();
+  //getting data from api
+  const drinks = await searchForTerm(term);
+  //displaying data
+  //@ts-ignore
+  showSearchResult(drinks);
+};
