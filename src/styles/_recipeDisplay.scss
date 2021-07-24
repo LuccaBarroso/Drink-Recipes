@@ -8,9 +8,6 @@
   align-items: center;
   padding-top: 50px;
   padding-bottom: 15px;
-  top: 600px;
-  position: relative;
-  overflow: hidden;
 }
 .triangle {
   position: absolute;
@@ -51,14 +48,22 @@
 
 .drinkContent {
   display: none;
+  top: 600px;
+  position: relative;
+  overflow: hidden;
 }
 .section-2 {
+  height: auto;
+  padding: 200px 0;
   background-color: variables.$dark-color;
 }
 table {
-  color: variables.$background-color;
   max-width: 80%;
+  tbody {
+    overflow: hidden;
+  }
   td {
+    color: white;
     font-size: 25px;
     font-weight: default;
     padding: 0.25em 0.5em;
@@ -72,7 +77,7 @@ table {
   }
 }
 .showTriangle {
-  animation: goUp 1s forwards 1s;
+  animation: goUp 1s forwards 0.3s;
 }
 @keyframes goUp {
   0% {
@@ -80,5 +85,22 @@ table {
   }
   100% {
     top: 0;
+  }
+}
+.section-3 {
+  padding-top: 50px;
+  text-align: center;
+  flex-direction: column;
+  height: auto;
+  padding-bottom: 100px;
+  h3,
+  p {
+    width: 80vw;
+  }
+  h3 {
+    font-size: 30px;
+  }
+  p {
+    font-size: 25px;
   }
 }

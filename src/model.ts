@@ -1,6 +1,7 @@
 import { showData } from ".";
 import { toggleSpinner } from "./view";
 
+//@ts-ignore
 export const getdrink = async function (url: string) {
   try {
     toggleSpinner(true);
@@ -30,9 +31,51 @@ const loadIngredients = function (everything: object): string {
     //@ts-ignore
     const curMeas = everything["strMeasure" + i];
     ing += `<tr>
-            ${curMeas ? "" : "<td>" + curMeas + "</td>"}
+            <td>${curMeas === null ? "" : curMeas}</td>
               <td>${curIng}</td>
             </tr>`;
   }
   return ing;
+};
+
+export const searchForTerm = async function (term: string) {
+  try {
+    const response = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${term}`
+    );
+    const data = await response.json();
+<<<<<<< HEAD
+    console.log(data);
+    const drinks = data.drinks;
+    if (drinks === null) return "NOT FOUND";
+=======
+    const drinks = data.drinks;
+>>>>>>> de8b0d42d6d34f3c840070a69eb357a984867fa5
+    let result: string = "";
+    await drinks.forEach(async function (drink: object) {
+      let drinkStr = `<div class="recItem" data-id="${
+        //@ts-ignore
+        drink.idDrink
+      }"><img class="searchF" src="${
+        //@ts-ignore
+        drink.strDrinkThumb
+      }/preview" alt="${
+        //@ts-ignore
+        drink.strDrink + " img"
+      }">
+      <h3>${
+        //@ts-ignore
+        drink.strDrink
+      }</h3></div>`;
+
+      result += drinkStr;
+    });
+<<<<<<< HEAD
+    return [result, drinks.length];
+=======
+    return result;
+>>>>>>> de8b0d42d6d34f3c840070a69eb357a984867fa5
+  } catch (err) {
+    console.log(err);
+  }
 };
