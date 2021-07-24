@@ -30,5 +30,9 @@ export const submitResearch = async function (term: string) {
   const drinks = await searchForTerm(term);
   //displaying data
   //@ts-ignore
+<<<<<<< HEAD
   showSearchResult(drinks[0], drinks[1]);
+=======
+  showSearchResult(drinks);
+>>>>>>> de8b0d42d6d34f3c840070a69eb357a984867fa5
 };

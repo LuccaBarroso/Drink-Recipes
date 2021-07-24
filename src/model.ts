@@ -44,9 +44,13 @@ export const searchForTerm = async function (term: string) {
       `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${term}`
     );
     const data = await response.json();
+<<<<<<< HEAD
     console.log(data);
     const drinks = data.drinks;
     if (drinks === null) return "NOT FOUND";
+=======
+    const drinks = data.drinks;
+>>>>>>> de8b0d42d6d34f3c840070a69eb357a984867fa5
     let result: string = "";
     await drinks.forEach(async function (drink: object) {
       let drinkStr = `<div class="recItem" data-id="${
@@ -66,7 +70,11 @@ export const searchForTerm = async function (term: string) {
 
       result += drinkStr;
     });
+<<<<<<< HEAD
     return [result, drinks.length];
+=======
+    return result;
+>>>>>>> de8b0d42d6d34f3c840070a69eb357a984867fa5
   } catch (err) {
     console.log(err);
   }

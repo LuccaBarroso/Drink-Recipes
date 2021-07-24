@@ -1,6 +1,7 @@
 import { generateRandom, submitResearch } from "./index";
 import { getdrink } from "./model";
 
+
 const recipeName = document.querySelector(".drinkName");
 const drinkImg = document.querySelector(".drinkImg");
 const spiner = document.querySelector(".drinkLoading");
@@ -16,6 +17,7 @@ const loadingSearchResult = document.querySelector(".displayResultsLoading");
 const searchWarning = document.querySelector(".searchWarning");
 const btnLeft = document.querySelector("#btnLeft");
 const btnRight = document.querySelector("#btnRight");
+
 
 export const initBtns = function () {
   randomBtn?.addEventListener("click", function () {
@@ -94,8 +96,6 @@ export const showSearchResult = function (drinks: string, count: number) {
     searchWarning?.classList.remove("dontDisplay");
   }
   loadingSearchResult?.classList.add("dontDisplay");
-};
-
 export const displayLoadingSearch = function () {
   //@ts-ignore
   searchResult?.innerHTML = "";
