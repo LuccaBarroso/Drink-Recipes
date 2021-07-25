@@ -1,7 +1,7 @@
 import { showData } from ".";
 import { toggleSpinner } from "./view";
 
-//@ts-ignore
+//fetch the needed data from the api given its url
 export const getdrink = async function (url: string) {
   try {
     toggleSpinner(true);
@@ -16,12 +16,17 @@ export const getdrink = async function (url: string) {
     //load ingredients
     const ingredients = loadIngredients(data.drinks[0]);
 
+    //call the controller to display the data
     showData(data.drinks[0], img.url, ingredients);
   } catch (err) {
-    console.log(`${err}`);
+    console.log(
+      "This following error happend while trying to load a recipe: ",
+      err
+    );
   }
 };
 
+//receive an object of ingredients and format it as a string
 const loadIngredients = function (everything: object): string {
   let ing = "";
   for (let i = 1; i <= 15; i++) {
@@ -40,17 +45,22 @@ const loadIngredients = function (everything: object): string {
 
 export const searchForTerm = async function (term: string) {
   try {
+    //fetch from api  for a term
     const response = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${term}`
     );
+    //convert from json
     const data = await response.json();
-<<<<<<< HEAD
-    console.log(data);
+
+    //log data
+    //console.log(data);
+
     const drinks = data.drinks;
-    if (drinks === null) return "NOT FOUND";
-=======
-    const drinks = data.drinks;
->>>>>>> de8b0d42d6d34f3c840070a69eb357a984867fa5
+
+    //if the api return null the function return a not found and a zero
+    if (drinks === null) return ["NOT FOUND", 0];
+
+    //start an empty  string to store the recipes
     let result: string = "";
     await drinks.forEach(async function (drink: object) {
       let drinkStr = `<div class="recItem" data-id="${
@@ -70,12 +80,11 @@ export const searchForTerm = async function (term: string) {
 
       result += drinkStr;
     });
-<<<<<<< HEAD
+
+    //return the recipes and the qnt of recipes
     return [result, drinks.length];
-=======
-    return result;
->>>>>>> de8b0d42d6d34f3c840070a69eb357a984867fa5
   } catch (err) {
-    console.log(err);
+    //log possible error to the console
+    console.log("this error was given while trying to load for a term: ", err);
   }
 };
