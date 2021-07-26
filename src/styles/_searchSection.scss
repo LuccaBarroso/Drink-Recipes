@@ -35,7 +35,8 @@
     }
   }
   button:hover {
-    scale: 5;
+    scale: 1.2;
+    transition: transform 0.25s ease-in-out;
   }
 }
 .displayResults {
