@@ -1,0 +1,28 @@
+@use "variables";
+
+footer {
+  height: auto;
+  background-color: variables.$dark-color;
+  text-align: center;
+  font-size: 20px;
+  p {
+    color: white;
+    padding-top: 10px;
+    height: 40px;
+    font-weight: thin;
+    overflow: hidden;
+  }
+  a {
+    color: variables.$details-color;
+    text-decoration: none;
+    background-color: variables.$less-dark-color;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 10px;
+  }
+  a:hover {
+    cursor: pointer;
+    color: white;
+    transition: color 0.25s ease-in-out;
+  }
+}
