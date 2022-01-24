@@ -9,6 +9,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  .notFound p{
+    color: white !important;
+  }
   form {
     display: flex;
     align-items: center;

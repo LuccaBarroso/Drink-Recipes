@@ -16,6 +16,7 @@ const loadingSearchResult = document.querySelector(".displayResultsLoading");
 const searchWarning = document.querySelector(".searchWarning");
 const btnLeft = document.querySelector("#btnLeft");
 const btnRight = document.querySelector("#btnRight");
+const notFound = document.querySelector(".notFound");
 
 //add event listenners to the btns
 export const initBtns = function () {
@@ -162,24 +163,35 @@ const displayPage = function (page: number) {
 
 //shows the search results =)
 export const showSearchResult = function (drinks: string, count: number) {
+  notFound?.classList.add("dontDisplay");
   //display all the found drinks and trigger the animation
   searchWarning?.classList.add("dontDisplay");
   //@ts-ignore
   searchResult?.classList.remove("dontDisplay");
   searchResult?.insertAdjacentHTML("afterbegin", drinks);
   searchResult?.classList.add("showSearch");
-
+  
   //set the new cur caunt of recipes
   curCount = count;
   //set the cur pg as the first one (zero based)
   curPg = 0;
-
+  
   //call the display page function to display only the current pages recipes
-  displayPage(0);
-
+  if(curCount !== 0){
+    displayPage(0);
+  }else {
+    showNotFound();
+  }
+  
   //remove the loading animation
   removeSearchLoading();
 };
+
+export const showNotFound = function(){
+  searchWarning?.classList.add("dontDisplay");
+  notFound?.classList.remove("dontDisplay");
+  console.log("no items found");
+}
 
 //set back to the begining with nothing beeing displayed in the search and show the loading animation
 export const displayLoadingSearch = function () {

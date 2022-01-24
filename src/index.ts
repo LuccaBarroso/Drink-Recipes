@@ -1,7 +1,7 @@
 import { loadHandsAnimation } from "./handsAnimation";
 import { getdrink, searchForTerm } from "./model";
 import "./styles/index.scss";
-import { displayRecipe, initBtns, showSearchResult } from "./view";
+import { displayRecipe, initBtns, showSearchResult, showNotFound } from "./view";
 
 //call the view to display data
 export const showData = function (data: any, img: any, ingredients: string) {
@@ -24,10 +24,10 @@ export const submitResearch = async function (term: string) {
 
   //check if the search was succesfull
   //@ts-ignore
-  if (drinks[1] === 0) {
+  if (!drinks) {
+    showNotFound();
   } else {
     //displaying data
-    //@ts-ignore
     showSearchResult(drinks[0], drinks[1]);
   }
 };
